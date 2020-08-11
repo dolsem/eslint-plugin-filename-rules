@@ -1,0 +1,7 @@
+*.iml
+.idea/
+.nyc_output
+node_modules/
+build/
+coverage/
+npm-debug.log
