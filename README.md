@@ -30,7 +30,7 @@ module.exports = {
 
 ## Plugin Options
 
-The following built-in values are supported: `'pascalcase'`, `'camelcase'`, `'snakecase'`, `'kebabcase'`. You can also provide your own regex:
+The following built-in values are supported: `pascalcase`/`PascalCase`, `camelcase`/`camelCase`, `snakecase`/`snake_case`, `kebabcase`/`kebab-case`. You can also provide your own regex:
 
 ```js
 ...
@@ -42,7 +42,7 @@ You can also specify different options for different file extensions. In this ca
 
 ```js
 ...
-'filename-rules/match': [2, { '.js': 'camelcase', '.ts': /^([a-z]+-)*[a-z]+(?:\..*)?$/ }],
+'filename-rules/match': [2, { '.js': 'camelCase', '.ts': /^([a-z]+-)*[a-z]+(?:\..*)?$/ }],
 ...
 ```
 
