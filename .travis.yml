@@ -1,15 +1,20 @@
-# Oh yeah!
 language: node_js
 
-# Add additional versions here as appropriate.
 node_js:
-  - "stable"
+  - stable
 
-# Lint errors should trigger a failure.
 before_script: npm run lint
-
-# Runs the coverage script (which runs the tests)
 script: npm run cover
-
-# Code coverage
 after_success: npm run coveralls
+
+jobs:
+  include:
+    - stage: npm release
+      if: tag IS present
+      deploy:
+        provider: npm
+        email: "$NPM_EMAIL"
+        api_key: "$NPM_TOKEN"
+        skip_cleanup: true
+        on:
+          tags: true
