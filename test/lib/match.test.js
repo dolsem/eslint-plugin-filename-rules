@@ -112,6 +112,11 @@ test('throws on unknown alias', (t) => t.throws(testRule({
         filename: '/foo/bar/AnotherModule.test.js',
         options: [alias],
       },
+      {
+        code,
+        filename: '/foo/bar/ModuleNameWithACRONYM.js',
+        options: [alias],
+      },
     ],
     invalid: [
       {
