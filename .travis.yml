@@ -3,13 +3,17 @@ language: node_js
 node_js:
   - stable
 
-before_script: npm run lint
-script: npm run cover
-after_success: npm run coveralls
+stages:
+  - test
+  - release
 
 jobs:
   include:
-    - stage: npm release
+    - stage: test
+      before_script: npm run lint
+      script: npm run cover
+      after_success: npm run coveralls
+    - stage: release
       if: tag IS present
       deploy:
         provider: npm
