@@ -328,3 +328,23 @@ test('file extension mapping', testRule({
     },
   ],
 }));
+
+test('custom message', testRule({
+  valid: [
+    {
+      code,
+      filename: '/foo/bar/test.txt',
+      options: [/^test(?:\..*)?$/],
+    },
+  ],
+  invalid: [
+    {
+      code,
+      filename: '/foo/bar/test_.txt',
+      options: [/^test(?:\..*)?$/, 'These are not he regex droids you are looking for'],
+      errors: [
+        { message: 'These are not he regex droids you are looking for', column: 1, line: 1 },
+      ],
+    },
+  ],
+}));
