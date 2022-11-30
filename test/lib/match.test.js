@@ -27,6 +27,32 @@ test('single regex', testRule({
   ],
 }));
 
+test('includePath', testRule({
+  valid: [
+    {
+      code,
+      filename: '/foo/bar/test.txt',
+      options: [{
+        pattern: /^.*bar.*$/,
+        includePath: true,
+      }],
+    },
+  ],
+  invalid: [
+    {
+      code,
+      filename: '/foo/bar/test.txt',
+      options: [{
+        pattern: /^.*baz.*$/,
+        includePath: true,
+      }],
+      errors: [
+        { message: "Filename '/foo/bar/test.txt' does not match /^.*baz.*$/.", column: 1, line: 1 },
+      ],
+    },
+  ],
+}));
+
 test('throws on unknown alias', (t) => t.throws(testRule({
   valid: [
     {
