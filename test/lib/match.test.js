@@ -14,6 +14,11 @@ test('single regex', testRule({
       filename: '/foo/bar/test.txt',
       options: [/^test(?:\..*)?$/],
     },
+    {
+      code,
+      filename: '/foo/bar/test.txt',
+      options: ['/^test(?:\\..*)/'],
+    },
   ],
   invalid: [
     {
