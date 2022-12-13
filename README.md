@@ -46,6 +46,22 @@ You can also specify different options for different file extensions. In this ca
 ...
 ```
 
+You can use the `includePath: true` option to have the pattern matched against the full file path (instead of only the file basename):
+
+```js
+...
+'filename-rules/match': [2, { includePath: true, pattern: /^([a-z]+-)*[a-z]+(?:\..*)?$/ }],
+...
+```
+
+The inverse rule `not-match` checks that the files do NOT match the given pattern. Supports all the same options:
+
+```js
+...
+'filename-rules/not-match': [2, 'camelCase'],
+...
+```
+
 ## License
 
 MIT
